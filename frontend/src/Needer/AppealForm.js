@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 const UserAppealList = () => {
@@ -47,13 +47,12 @@ const UserAppealList = () => {
       formData.append('email', email);
       formData.append('photo', photo);
 
-      const response = await post('http://localhost:3000/submit-appeal', {
-      method: 'POST',
-      body: formData,
+      const response = await fetch('http://localhost:3000/submit-appeal', {
+        method: 'POST',
+        body: formData,
       });
 
-
-      if (response.status === 200) {
+      if (response.ok) {
         console.log('Appeal submitted successfully');
         // Optionally, you can fetch the updated list of appeals here
       } else {
@@ -94,8 +93,13 @@ const UserAppealList = () => {
         </label>
         <br/>
         <button type='submit'>Submit Appeal</button>
+
+        <h2>Submitted Appeal</h2>
+        
       </form>
+      {error && <p>{error}</p>}
     </div>
+    
   );
 };
 
