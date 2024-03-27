@@ -5,7 +5,9 @@
 
 /* "KHOJ" text ke liye animation */
 .khoj-text {
-  animation: fadeIn 5s ease; /* Animation duration and easing */
+  animation: fadeIn 5s ease;
+  color: #007bff; /* Animation duration and easing */
+  font-size: 200%;
 }
 
 .signup-container {
@@ -17,8 +19,14 @@
 .left-container {
   width: 50%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+   /* Changed background color to black */
+  color: #ffffff; /* Changed text color */
+  padding: 20px;
+ 
+  background-size: cover; 
 }
 
 .right-container {
@@ -26,7 +34,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:black; /* Adding background color similar to center block */
+  background-color:white; /* Adding background color similar to center block */
 }
 
 .center {
@@ -83,14 +91,14 @@
 .back-to-login {
   margin-top: 15px; /* Adjusted margin */
   padding: 10px 20px; /* Added padding to match button size */
-  background-color: #ccc; /* Changed button background color */
+  background-color: #007bff; /* Changed button background color */
   border: none;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none; /* Removed default button styling */
-  color: #000; /* Changed text color */
+  color:white; /* Changed text color */
 }
 
 .back-to-login:hover {
-  background-color: #999; /* Darker background color on hover */
+  background-color:  #0056b3; /* Darker background color on hover */
 }
