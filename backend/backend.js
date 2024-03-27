@@ -1,6 +1,5 @@
-
 import { MongoClient } from 'mongodb';
-import multer, { memoryStorage } from 'multer';
+import multer from 'multer';
 import { v4 as uuidv4 } from 'uuid';
 import { config } from 'dotenv';
 
@@ -25,34 +24,40 @@ async function connectToDatabase() {
 connectToDatabase();
 
 // Multer configuration for handling file uploads
-const storage = memoryStorage();
-const fileUpload = multer({ storage: storage });
+const storage = multer.memoryStorage();
+const fileUpload = multer({ storage: storage }).single('photo');
 
 // API endpoint for submitting appeals
 async function submitAppeal(req, res) {
   try {
-    const db = client.db(dbName);
-    const collection = db.collection('mycollection');
+    fileUpload(req, res, async (err) => {
+      if (err) {
+        console.error('Error uploading file:', err);
+        return res.status(400).send('Error uploading file');
+      }
 
-    // Extract appeal data from request body
-    const { name, age, phone, email } = req.body;
-    const photo = req.file.buffer;
+      const db = client.db(dbName);
+      const collection = db.collection('mycollection');
 
-    // Insert appeal data into MongoDB
-    const result = await collection.insertOne({
-      personId: uuidv4(),
-      name,
-      age,
-      phone,
-      email,
-      photo
+      const { name, age, phone, email } = req.body;
+      const photo = req.file ? req.file.buffer : null;
+
+      // Insert appeal data into MongoDB
+      const result = await collection.insertOne({
+        personId: uuidv4(),
+        name,
+        age,
+        phone,
+        email,
+        photo
+      });
+
+      console.log('Appeal submitted successfully');
+      return res.sendStatus(200);
     });
-
-    console.log('Appeal submitted successfully');
-    res.sendStatus(200);
   } catch (error) {
     console.error('Error submitting appeal:', error);
-    res.sendStatus(500);
+    return res.sendStatus(500);
   }
 }
 

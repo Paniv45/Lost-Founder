@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-
+import { useNavigate, Link } from 'react-router-dom';
+import "./Main.css";
 
 const UserMain = () => {
+  const [username, setUsername] = useState('');
   const [appeals, setAppeals] = useState([]);
   const [error, setError] = useState(null);
-  const username = localStorage.getItem('username'); // Retrieve username from local storage
+  const navigate = useNavigate(); // Initialize navigate
 
   useEffect(() => {
-    const username = localStorage.getItem('username');
-    
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
   }, []);
 
   useEffect(() => {
@@ -27,34 +30,50 @@ const UserMain = () => {
     fetchAppeals();
   }, []);
 
+  const handleSignOut = () => {
+    // Clear the username from localStorage
+    localStorage.removeItem('username');
+    // Redirect to login page using navigate
+    navigate('/login');
+  };
+
   return (
-    <div>
+    <div className='main5'>
       <h2>Welcome, {username}!</h2> {/* Display username */}
-      <h3>All Appeals with Photos</h3>
-      <Link to='/NeederMain'>
-        <button>Submit Appeal</button>
-      </Link>
+
+      <div className='right'>
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <Link to='/NeederMain' >
+            <button>Submit Appeal</button>
+          </Link>
+
+        < button onClick={handleSignOut}>Sign Out</button>
+        </div>
+      </div>
+
       {error && <p>{error}</p>}
-      <ul>
-        {appeals.map((appeal) => (
-          <li key={appeal.personId}>
-            <p>Name: {appeal.name}</p>
-            <p>Age: {appeal.age}</p>
-            {appeal.photo && (
-              <img
-                src={`data:image/jpeg;base64,${appeal.photo}`}
-                alt={appeal.name}
-                style={{ maxWidth: '500px' }}
-                onError={(e) => console.error('Error loading image:', e)}
-              />
-            )}
-            <br/>
-            <Link to={'/Foundit'}>
-            <button>I Can Help</button>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <div className='Usercenter'>
+        <ul>
+          {appeals.map((appeal) => (
+            <li key={appeal.personId}>
+              <p style={{ fontSize: '30px' }}>Name: {appeal.name}</p> 
+              <p>Age: {appeal.age}</p>
+              {appeal.photo && (
+                <img
+                  src={`data:image/jpeg;base64,${appeal.photo}`}
+                  alt={appeal.name}
+                  style={{ maxWidth: '500px' }}
+                  onError={(e) => console.error('Error loading image:', e)}
+                />
+              )}
+              <br/>
+              <Link to={`/Foundit/${appeal.personId}/${appeal.email}/${appeal.name}`}>
+                <button>Found</button>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

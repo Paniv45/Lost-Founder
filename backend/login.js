@@ -26,6 +26,8 @@ connectToDatabase();
 // API endpoint for user login
 async function login(req, res) {
     try {
+      console.log("Printing request body")
+      console.log(req.body)
       const { username, password } = req.body;
       const db = client.db(dbName);
       const collection = db.collection('users');

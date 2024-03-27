@@ -1,0 +1,75 @@
+/* Foundit.css */
+
+.UserAppealList {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.center {
+  max-width: 600px;
+  padding: 20px;
+  border: 1px  #007bff;
+  border-radius: 5px;
+  color:  #007bff;
+  margin-bottom: 20px;
+  background-color: black; /* Add margin to create space between form and Appeals section */
+}
+
+.h2 {
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input[type='text'],
+input[type='time'],
+input[type='date'] {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding-inline: 20px;
+  margin-right: 10px; /* Add margin to create gap */
+}
+
+
+button:hover {
+  background-color: #0056b3;
+}
+
+p.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.Appealmade {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}

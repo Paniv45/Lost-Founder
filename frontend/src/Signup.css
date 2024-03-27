@@ -1,0 +1,96 @@
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* "KHOJ" text ke liye animation */
+.khoj-text {
+  animation: fadeIn 5s ease; /* Animation duration and easing */
+}
+
+.signup-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.left-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:black; /* Adding background color similar to center block */
+}
+
+.center {
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff; /* Changed background color to white for better readability */
+}
+
+.center h2 {
+  text-align: center;
+}
+
+.center form {
+  display: flex;
+  flex-direction: column;
+}
+
+.center label {
+  margin-bottom: 10px;
+}
+
+.center input {
+  padding: 10px; /* Increased padding for inputs */
+  margin-bottom: 15px; /* Increased margin for inputs */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.center button[type="submit"] {
+  padding: 12px 24px; /* Increased padding for buttons */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.center button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  text-align: center; /* Centering error message */
+}
+
+.success-message {
+  color: green;
+  text-align: center; /* Centering success message */
+}
+
+.back-to-login {
+  margin-top: 15px; /* Adjusted margin */
+  padding: 10px 20px; /* Added padding to match button size */
+  background-color: #ccc; /* Changed button background color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; /* Removed default button styling */
+  color: #000; /* Changed text color */
+}
+
+.back-to-login:hover {
+  background-color: #999; /* Darker background color on hover */
+}

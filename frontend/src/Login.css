@@ -1,0 +1,126 @@
+/* Login.css */
+
+/* Animation ka keyframe */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* "KHOJ" text ke liye animation */
+.khoj-text1 {
+  animation: fadeIn 5s ease;
+  color: #007bff; /* Animation duration and easing */
+  font-size: 200%;
+}
+
+/* Baaki CSS ka code */
+.login-container1 {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  /* background-image: url('https://images.unsplash.com/photo-1489619547086-641e1c87c3ff?q=80&w=2036&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
+  background-color: black;
+}
+
+.left-container1 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   /* Changed background color to black */
+  color: #ffffff; /* Changed text color */
+  padding: 20px;
+ 
+  background-size: cover; /* Make sure the image covers the entire container */
+}
+
+.left-container h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.left-container1 p {
+  font-size: 18px;
+}
+
+.right-container1 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Changed background color to black */
+}
+
+.center1{
+  width: 400px;
+  padding: 20px;
+  border: 1px solid hsl(220, 43%, 99%);
+  border-radius: 5px;
+  color:#007bff;
+  /* background-image: url('https://images.unsplash.com/photo-1489619547086-641e1c87c3ff?q=80&w=2036&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
+}
+
+.center1 h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.center1 label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.center1 input[type='text'],
+.center1 input[type='email'],
+.center1 input[type='password'] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid hsl(210, 100%, 100%);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.center1 button[type='submit'] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.center1 button[type='submit']:hover {
+  background-color: #0056b3;
+}
+
+.center1 button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.center1 button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+}
+
+.h21{
+  color: #007bff;
+  text-align: center;
+  font-size: 200%;
+
+}
+
+.center1:hover {
+  box-shadow: 0 0 16px #007bff;
+}
