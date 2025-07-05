@@ -31,7 +31,8 @@ git clone https://github.com/Paniv45/khoj.git
 cd khoj
 ```
 
-2. Install Dependencies
+### 2. Install Dependencies
+
 Backend
 ```bash
 cd backend
@@ -43,7 +44,7 @@ Frontend
 cd ../frontend
 npm install
 ```
-3. Environment Setup
+### 3. Environment Setup
 Create a .env file inside the backend folder and add:
 
 ```bash
@@ -54,7 +55,8 @@ EMAIL_USER=your_email@gmail.com
 EMAIL_PASS=your_email_password_or_app_password
 ```
 
-4. Run the App
+### 4. Run the App
+
 Start Backend
 
 ```bash
